@@ -1,0 +1,518 @@
+[
+ {
+  "fc_receiver": "aa-harvest-moon.near",
+  "fc_keys": 3433,
+  "accounts": 3392,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "3uMVTYHF1dZj3CEPq4tQ7C9y7pZz7poNisGkm9sKPR1B",
+  "ft_symbol": "MOON",
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "meta-pool.near",
+  "fc_keys": 816,
+  "accounts": 538,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "J6pS9R23vzbwxGB8eMq4qrn8UhciEYHsVbR9UJPyLNxh",
+  "ft_symbol": "STNEAR",
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "nearlios.swiftarena6534.near",
+  "fc_keys": 758,
+  "accounts": 584,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "9CJdwkHFJ8onM68ZkYuKMHQFZdWpd1QTFgAXLgyZ6W19",
+  "ft_symbol": null,
+  "nft_name": "NEARLIOS",
+  "source_link": null,
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "linear-protocol.near",
+  "fc_keys": 319,
+  "accounts": 197,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "5LiDVDd1gh7ofVNbiA9VXrWwkv2m8tw46jZqYeuoC3SG",
+  "ft_symbol": "LINEAR",
+  "nft_name": null,
+  "source_link": "https://github.com/linear-protocol/LiNEAR",
+  "standards": null
+ },
+ {
+  "fc_receiver": "world.pumpopoly.near",
+  "fc_keys": 312,
+  "accounts": 91,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "8S1Cpz84oJcwQvoaNPcguM4r7FjV2KLqqYFBc5MaDfDS",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "nearlytrade.near",
+  "fc_keys": 277,
+  "accounts": 166,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "9mwfrbtBbDr3y2t9rHY944qAQTU2PsB5smqsAHZJo4G5",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": "https://github.com/sam3dsol/Nearlytrade/tree/e82bfa013ea380f9dbbcb9d58e9f0af798185eab",
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "meme-cooking.near",
+  "fc_keys": 266,
+  "accounts": 225,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "4fiHyHn5RuEoywt4dhnwDrcsqLSC9R5Xxfk9DNQL2kii",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": "https://github.com/Shitzu-Apes/meme-launchpad",
+  "standards": [
+   "nep148",
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "cookie.nekotoken.near",
+  "fc_keys": 252,
+  "accounts": 129,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "9eZeB8Mvt9xpRUWLdSL8TbdSFux3AJhqvEv1sVzRYquH",
+  "ft_symbol": "COOKIE",
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "ftv2.nekotoken.near",
+  "fc_keys": 243,
+  "accounts": 143,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "7HNYHZyfUPbCAoKDpjV8zBJyZLcKkE5FBzYo3J98cUo9",
+  "ft_symbol": "NEKO",
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "social.near",
+  "fc_keys": 198,
+  "accounts": 102,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "B5Yf5EquM36fGu3JNAD2K83fT6L4dpzcx8mYLnkjJJbS",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "0fb5bdc4d3ee4230.trade.unrlzd.near",
+  "fc_keys": 197,
+  "accounts": 1,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "contract.saifu-network.near",
+  "fc_keys": 174,
+  "accounts": 5,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "44eL5wCjTDufxf6JQFqGXaLXXNgZfRJGpUyHcKdivumu",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "social",
+  "fc_keys": 153,
+  "accounts": 121,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "de8a9ccc3e8cbb1b.trade.unrlzd.near",
+  "fc_keys": 113,
+  "accounts": 1,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "meteor-account-verifier.near",
+  "fc_keys": 106,
+  "accounts": 89,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "chipfi.near",
+  "fc_keys": 99,
+  "accounts": 70,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "B32sfu9v9ZtiGCz8TXKVXAxkeq4qMpiRAXjFCBZpb6Et",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": "https://github.com/opengrid1/launchpad",
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "intents.near",
+  "fc_keys": 96,
+  "accounts": 32,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "BtA1BEFNS619KkvXFsgcpQ21Tb5yMm32aaUkn7xNothk",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": "https://github.com/near/intents/tree/16d04f6ec4401263f8914638710260da50bb46b0",
+  "standards": [
+   "dip4",
+   "nep245",
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "0f600f4b9723b12d.trade.unrlzd.near",
+  "fc_keys": 86,
+  "accounts": 1,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "protocol.newgoat6636.near",
+  "fc_keys": 85,
+  "accounts": 71,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "eiQ1BkRgFrMvRvrw6f6J2ZhKgPhdxzwD69ChwpedKpk",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "177d0dba946d26e4.trade.unrlzd.near",
+  "fc_keys": 85,
+  "accounts": 1,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "vesting.nekotoken.near",
+  "fc_keys": 81,
+  "accounts": 55,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "4AXVRi3dD1s8vEYmFXJYSusECKorWBGro267f1SN4ptJ",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "contract.portalbridge.near",
+  "fc_keys": 79,
+  "accounts": 56,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "AjG8iyXZRzX7sYz34niwXACAgowF9BKwFXgDki4s7e2P",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "rightestate4224.near",
+  "fc_keys": 77,
+  "accounts": 65,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "near-fm.near",
+  "fc_keys": 75,
+  "accounts": 44,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "7UNoHMyyX47CDTyt2Muv7x9gqgxBTDjgLLAmStqJezuY",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "ofpcore.near",
+  "fc_keys": 74,
+  "accounts": 23,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "9n2bxjcoFSCbKSpew1X8kVVZ3aEMPeJm21SJ7FSt5Eb7",
+  "ft_symbol": null,
+  "nft_name": "OFP",
+  "source_link": "https://github.com/open-reforestation-protocol/ofp-contract/tree/541f6d797a59b6fdbe9d8ea280e0ccdaa1ff2c3d",
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "login.namesky.near",
+  "fc_keys": 73,
+  "accounts": 68,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "2jaPDMYsbYfvnvWhRYXMeF6XAMPLp7FFH94hjRGzx12P",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "v2.ref-finance.near",
+  "fc_keys": 71,
+  "accounts": 30,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "GZmkbfVLcN7ErxU9RDxP24YTaKmoVixhM6XyycP15Qvi",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "a73fc138462ed1a58487db45c9ab720d75fe83b7e56a4ed7485871c99cf688b7",
+  "fc_keys": 69,
+  "accounts": 63,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "v1.signer",
+  "fc_keys": 68,
+  "accounts": 11,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "CpGX8ywXJwvWPgZFDDCTCuPJBHF7BATT51gSfc3APERJ",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": "https://github.com/near/mpc/tree/e691bdb98d68dcf74653da58d043453a6318765f",
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "grid.deltatrade.near",
+  "fc_keys": 60,
+  "accounts": 57,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "3xZcLNbGaM3DfyobnNNPAEkM32kwtuDEMLp96asbFvud",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "52414e9ea9dde759.trade.unrlzd.near",
+  "fc_keys": 59,
+  "accounts": 1,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "nfinite.near",
+  "fc_keys": 56,
+  "accounts": 46,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "pad.onetokenhub.near",
+  "fc_keys": 55,
+  "accounts": 35,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "DZa5zQS5ToTdbcdfJb8QtCtRrF6aRMBFi4EnsNtYQqEb",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "shit.0xshitzu.near",
+  "fc_keys": 53,
+  "accounts": 44,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "EMUPaTA6saAbf5S7ffLSQ7nD7a3gb6UVatVK7HWCW1TN",
+  "ft_symbol": "DOGSHIT",
+  "nft_name": null,
+  "source_link": "https://github.com/Shitzu-Apes/validator-rewards/tree/0388144c9fff6d869a1b26bfecdcc89edff775bc",
+  "standards": [
+   "nep148",
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "70d05b9bdca12dc78e6acef8904267f4198ff16cc85066fe3cc88bb04a822628",
+  "fc_keys": 48,
+  "accounts": 1,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "9najkCx8TGCo93pKjM82Ymy1JFW7ELPqeYP8GfowE2AB",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "3a3946fa328cd732.trade.unrlzd.near",
+  "fc_keys": 47,
+  "accounts": 1,
+  "exists": true,
+  "has_code": false,
+  "code_hash": "11111111111111111111111111111111",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "wrap.near",
+  "fc_keys": 46,
+  "accounts": 23,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1",
+  "ft_symbol": "wNEAR",
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "dex.vistadev.near",
+  "fc_keys": 45,
+  "accounts": 28,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "6pfB3kvRQXANganiPnp1LqMuwr3TkpxcxZ4K28aFe77v",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": null,
+  "standards": [
+   "nep330"
+  ]
+ },
+ {
+  "fc_receiver": "nearrewards.near",
+  "fc_keys": 44,
+  "accounts": 34,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "6nQW3rzQnyEjB3VuFxPADxnPkpFMeh7Sdz62ebW6kh4g",
+  "ft_symbol": "NearRewards.com",
+  "nft_name": null,
+  "source_link": null,
+  "standards": null
+ },
+ {
+  "fc_receiver": "allstake.near",
+  "fc_keys": 43,
+  "accounts": 33,
+  "exists": true,
+  "has_code": true,
+  "code_hash": "7uKtDDQReML548dUdnM1RjR3RhxSvo4xf19tpKc1C6m7",
+  "ft_symbol": null,
+  "nft_name": null,
+  "source_link": "https://github.com/allstake/allstake",
+  "standards": [
+   "nep145",
+   "nep297",
+   "nep330"
+  ]
+ }
+]

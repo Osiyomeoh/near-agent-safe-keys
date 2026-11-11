@@ -1,0 +1,6 @@
+.env
+.env.*
+!.env.example
+node_modules/
+supplier-purse/
+.DS_Store
