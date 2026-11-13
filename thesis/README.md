@@ -1,6 +1,6 @@
 # NEAR's agent-safe keys: a thesis you can check yourself
 
-An evidence-first investment thesis for NEAR HACKATHON (track: `thesis`). The claim, the evidence for and against, and what would change our mind are in [THESIS.md](THESIS.md).
+An evidence-first investment thesis for NEAR HACKATHON (track: `thesis`). The claim, the evidence for and against, and what would change our mind are in [THESIS.md](THESIS.md). Our prediction for November was committed before we queried November, and the test passed (4.44% against a bar of 2.0%). See [PREDICTION.md](PREDICTION.md); `git log thesis/PREDICTION.md` shows the order.
 
 ## Check it in 60 seconds (no account, no key, no npm install)
 

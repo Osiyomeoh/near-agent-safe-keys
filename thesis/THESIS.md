@@ -3,8 +3,9 @@
 > **In 30 seconds**
 > - **Claim:** NEAR's function-call keys are the safest way to give an AI agent access to an account, and they are built into NEAR's account model. On Ethereum and similar chains, the same thing usually needs a smart-contract wallet with session keys. Builders have just started to use them.
 > - **For:** function-call key additions rose 9× from Aug to Oct 2026 (816 → 7,363), and their share of new keys rose from 0.01% to 2.69%.
+> - **Out-of-sample test passed:** we committed a prediction (≥ 2.0% in November) before querying November. The result was **4.44%** for Nov 1–13. See [PREDICTION.md](PREDICTION.md).
 > - **Not just growth:** transactions rose 7% over the same months.
-> - **Against:** 97% of new keys are still full-access. Only 1.8% of function-call keys point at agent infrastructure (Intents, Chain Signatures), 11% point at accounts with no contract, and 45 of 120 sampled keys were deleted within weeks.
+> - **Against:** about 96–97% of new keys are still full-access. Only 1.8% of function-call keys point at agent infrastructure (Intents, Chain Signatures), 11% point at accounts with no contract, and 45 of 120 sampled keys were deleted within weeks.
 > - **Verdict:** the moat is real but not yet in use. Watch Nov–Dec: if the share holds above 2% without hackathon traffic, the thesis strengthens.
 > - **Check it:** run `node thesis/verify.mjs`, or open the dashboard and press **Verify**. No account is needed.
 
@@ -66,7 +67,15 @@ This reads public on-chain facts with no account: whether the target holds code,
 - Run at block 224,118,127 (2026-11-11 21:11 UTC): **75 still live, 45 deleted since, 0 unreadable.**
 - About 38% of the sampled keys were deleted within 1–2 months. That fits short-lived session keys (an app or bot rotating keys), not long-held delegation. It is a sample of 120 keys, not a rate for the whole chain.
 
-- **October also had an unexplained signer jump:** 826,700 distinct signers against 302,272 in September (2.7×), while transactions barely moved. Something brought in many one-off signers. We haven't identified it, and it could be linked to the key rise.
+- **October's signer jump is spread out, not one event.** October had 826,700 distinct signers against 302,272 in September (2.7×), while transactions barely moved. `sql/oct_new_signers.sql` (2.5 GB) lists what signers who were new in October called (`data/oct_new_signers.json`):
+  - `wrap.near` (22,030 new signers)
+  - the HOT Telegram game `game.hot.tg` (20,600)
+  - `bridge-mng.near` (18,961)
+  - Ref's `dclv2.ref-labs.near` (14,145)
+  - `ai-8.nearlytrade.near` (13,406; "AI" is in its name only, which isn't proof it's an agent)
+  - `autonomousinu.near` and one implicit account, with about 1 tx per signer each. That looks like airdrop or farm traffic.
+
+  No single contract explains it, and part of it is likely farmed. This weakens "more users" as a reading of October.
 
 ## What would change our mind
 

@@ -15,7 +15,9 @@ if (process.argv.includes("--query")) {
   writeFileSync(p("data/keys_by_month_mar_oct.csv"), bq("sql/keys_by_month_mar_oct.sql", "csv", 850e9));
   writeFileSync(p("data/fc_receivers_sep_oct.json"), bq("sql/fc_receivers_sep_oct.sql", "json", 200e9));
   writeFileSync(p("data/activity_by_month.csv"), bq("sql/activity_by_month.sql", "csv", 10e9));
-  writeFileSync(p("data/SHA256SUMS"), execFileSync("shasum", ["-a", "256", "thesis/data/keys_by_month_mar_oct.csv", "thesis/data/fc_receivers_sep_oct.json", "thesis/data/activity_by_month.csv"], { cwd: join(here, ".."), encoding: "utf8" }));
+  writeFileSync(p("data/keys_nov_to_date.csv"), bq("sql/keys_nov_to_date.sql", "csv", 35e9));
+  writeFileSync(p("data/oct_new_signers.json"), bq("sql/oct_new_signers.sql", "json", 3e9));
+  writeFileSync(p("data/SHA256SUMS"), execFileSync("shasum", ["-a", "256", "thesis/data/keys_by_month_mar_oct.csv", "thesis/data/fc_receivers_sep_oct.json", "thesis/data/activity_by_month.csv", "thesis/data/keys_nov_to_date.csv", "thesis/data/oct_new_signers.json"], { cwd: join(here, ".."), encoding: "utf8" }));
 }
 
 const [head, ...lines] = readFileSync(p("data/keys_by_month_mar_oct.csv"), "utf8").trim().split("\n");
@@ -24,6 +26,8 @@ const months = lines.map((l) => Object.fromEntries(l.split(",").map((v, i) => [c
 for (const m of months) m.share = (100 * m.add_key_function_call) / (m.add_key_function_call + m.add_key_full_access);
 const [ah, ...al] = readFileSync(p("data/activity_by_month.csv"), "utf8").trim().split("\n");
 const act = Object.fromEntries(al.map((l) => { const [m, tx, sg] = l.split(","); return [m, { tx: +tx, signers: +sg }]; }));
+const [, nl] = readFileSync(p("data/keys_nov_to_date.csv"), "utf8").trim().split("\n");
+const nov = { fc: +nl.split(",")[0], full: +nl.split(",")[1] };
 const recv = JSON.parse(readFileSync(p("data/fc_receivers_sep_oct.json"), "utf8"));
 const targets = JSON.parse(readFileSync(p("data/targets.json"), "utf8"));
 const sum = (f) => targets.filter(f).reduce((a, t) => a + t.fc_keys, 0), totalKeys = sum(() => true);
@@ -55,7 +59,8 @@ code{font-size:12px}.m{color:var(--muted)}</style></head><body>
 <p>Each number comes from the NEAR BigQuery public dataset. Check it with no account: <code>node thesis/verify.mjs</code>, which confirms sampled receipts against NEAR's public archival RPC.</p>
 <h2>Function-call keys as a share of all new keys</h2>
 <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Function-call key share by month">${bars}</svg>
-<p>Under 3% even at the peak; up about 9× from August to October. Query: <code>sql/keys_by_month_mar_oct.sql</code>.</p>
+<p><b>Pre-registered test:</b> before querying November, we committed a prediction that the share would stay at or above 2.0% (<code>PREDICTION.md</code>, commit <code>d8b2a27</code>). Nov 1–13 came in at <b>${(100 * nov.fc / (nov.fc + nov.full)).toFixed(2)}%</b> (${fmt(nov.fc)} function-call keys, ${fmt(nov.full)} full-access). Query: <code>sql/keys_nov_to_date.sql</code>.</p>
+<p>Through October the share stayed under 3%; up about 9× from August to October. Query: <code>sql/keys_by_month_mar_oct.sql</code>.</p>
 <table><tr><th>Month</th><th>Full-access</th><th>Function-call</th><th>Share</th><th>Targets</th></tr>
 ${months.map((m) => `<tr><td>${m.month.slice(0, 7)}</td><td>${fmt(m.add_key_full_access)}</td><td>${fmt(m.add_key_function_call)}</td><td>${m.share.toFixed(2)}%</td><td>${fmt(m.distinct_fc_receivers)}</td></tr>`).join("")}</table>
 <h2>Is it just network growth? No.</h2>
