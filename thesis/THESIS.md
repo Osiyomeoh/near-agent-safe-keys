@@ -1,6 +1,14 @@
 # NEAR's agent-safe keys: real, almost unused, and just starting to move
 
-**The claim.** NEAR is the only major chain where an account can hand out a key that can call only one contract, with a gas allowance, and can't move funds: a *function-call access key*. That is the safest way to give an AI agent or an app access to an account. If agents are going to hold money, this feature is a long-term edge for NEAR. **The data says the edge is real but almost unused. It started to move in Sep–Oct 2026, and most of that move is game and app logins, not agents.**
+> **In 30 seconds**
+> - **Claim:** NEAR's function-call keys are the safest way to give an AI agent access to an account, and they are built into NEAR's account model. On Ethereum and similar chains, the same thing usually needs a smart-contract wallet with session keys. Builders have just started to use them.
+> - **For:** function-call key additions rose 9× from Aug to Oct 2026 (816 → 7,363), and their share of new keys rose from 0.01% to 2.69%.
+> - **Not just growth:** transactions rose 7% over the same months.
+> - **Against:** 97% of new keys are still full-access. Only 1.8% of function-call keys point at agent infrastructure (Intents, Chain Signatures), 11% point at accounts with no contract, and 45 of 120 sampled keys were deleted within weeks.
+> - **Verdict:** the moat is real but not yet in use. Watch Nov–Dec: if the share holds above 2% without hackathon traffic, the thesis strengthens.
+> - **Check it:** run `node thesis/verify.mjs`, or open the dashboard and press **Verify**. No account is needed.
+
+**The claim.** On NEAR, any account can natively hand out a key that can call only one contract, with a gas allowance, and can't move funds: a *function-call access key*. That is the safest way to give an AI agent or an app access to an account. If agents are going to hold money, this feature is a long-term edge for NEAR. **The data says the edge is real but almost unused. It started to move in Sep–Oct 2026, and most of that move is game and app logins, not agents.**
 
 Check every number yourself, with no account: `node thesis/verify.mjs`.
 - It checks each data file against `data/SHA256SUMS`.
@@ -29,6 +37,7 @@ All data comes from the NEAR BigQuery public dataset, `bigquery-public-data.cryp
 
 - **Function-call key additions rose about 9× from August to October** (816 → 7,363).
 - **Distinct target contracts rose about 8× from August to September** (165 → 1,348). The feature is being used by more builders, not just more often.
+- **It isn't just network growth.** Monthly transactions were nearly flat from Aug to Oct (21.1M → 22.6M, +7%), while function-call keys rose 9×. Per million transactions, that's 38.6 → 325.4. Source: `data/activity_by_month.csv`, from `sql/activity_by_month.sql` (7.77 GB scanned).
 - **Builder interest is visible in this hackathon:** 56 of the 137 GitHub repos linked from NEAR HACKATHON demo posts mention function-call keys. This is interest, not usage. Counted with `research/` scripts on Nov 11, 2026.
 
 ## Evidence against
@@ -56,6 +65,8 @@ This reads public on-chain facts with no account: whether the target holds code,
 - `live.mjs` asks NEAR's public RPC (finality `final`, no account) whether each of the 120 sampled keys still exists.
 - Run at block 224,118,127 (2026-11-11 21:11 UTC): **75 still live, 45 deleted since, 0 unreadable.**
 - About 38% of the sampled keys were deleted within 1–2 months. That fits short-lived session keys (an app or bot rotating keys), not long-held delegation. It is a sample of 120 keys, not a rate for the whole chain.
+
+- **October also had an unexplained signer jump:** 826,700 distinct signers against 302,272 in September (2.7×), while transactions barely moved. Something brought in many one-off signers. We haven't identified it, and it could be linked to the key rise.
 
 ## What would change our mind
 

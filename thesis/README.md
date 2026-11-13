@@ -14,7 +14,7 @@ An evidence-first investment thesis for NEAR HACKATHON (track: `thesis`). The cl
 4. Run `node thesis/classify.mjs`.
    - **You'll see:** for each top target, whether it has code and what it is (token, NFT, source repo). Our run found 1,048 keys pointing at accounts with no contract.
 5. Optionally, run `node thesis/rebuild.mjs --query` to re-run the BigQuery side yourself.
-   - It needs your own Google Cloud project and scans about 0.99 TB, inside the 1 TB monthly free tier.
+   - It needs your own Google Cloud project and scans about 1.0 TB, which is about the whole 1 TB monthly free tier (a few cents beyond it).
    - The hard caps are in the script.
 
 ## Files
