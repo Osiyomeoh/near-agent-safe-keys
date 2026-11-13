@@ -150,6 +150,22 @@ test("every data file the text relies on is hash-checked", () => {
   for (const f of ["txshare_oct1_nov13.json", "protocol_config.json", "protocol_switch.json"]) assert.ok(sums.includes(`thesis/data/${f}`), f);
 });
 
+test("PREREG-2.md.ots is an OpenTimestamps proof of this exact PREREG-2.md, and a changed file fails", async () => {
+  const { spawnSync } = await import("node:child_process");
+  const { mkdtempSync, writeFileSync } = await import("node:fs");
+  const { tmpdir } = await import("node:os");
+  const run = (env) => spawnSync("node", [join(root, "thesis/check-anchor.mjs"), "--offline"], { env: { ...process.env, ...env }, encoding: "utf8" });
+  const sha = createHash("sha256").update(read("thesis/PREREG-2.md")).digest("hex");
+  const ok = run({});
+  assert.equal(ok.status, 0, ok.stdout + ok.stderr);
+  assert.ok(ok.stdout.includes(`OK   the proof is for sha256 ${sha}`));
+  const changed = join(mkdtempSync(join(tmpdir(), "prereg-")), "PREREG-2.md");
+  writeFileSync(changed, read("thesis/PREREG-2.md").replace("at least 11%", "at least 10%"));
+  const bad = run({ PREREG_FILE: changed, OTS_FILE: join(root, "thesis/PREREG-2.md.ots") });
+  assert.equal(bad.status, 1, "a changed PREREG-2.md must fail");
+  assert.ok(bad.stdout.startsWith("FAIL"));
+});
+
 test("dashboard is rebuilt from the current data (run rebuild.mjs --offline if this fails)", async () => {
   const { execFileSync } = await import("node:child_process");
   const { mkdtempSync } = await import("node:fs");

@@ -93,7 +93,7 @@ ${hold.after_rebate_end ? `<tr><td>NEAR burnt, annualized, only blocks after the
 <table><tr><th>Rule</th><th>Fires?</th></tr>${v.rules.map((r) => `<tr><td>${r.text}</td><td>${r.fired ? "yes" : "no"}</td></tr>`).join("")}</table>
 ${prereg ? `<h2>Next pre-registered test</h2>
 <ul>${[...prereg.matchAll(/^\*\*Prediction \d[^\n]*/gm)].map((m) => `<li>${m[0].replace(/\*\*/g, "").replace(/`([^`]+)`/g, "<code>$1</code>")}</li>`).join("") || "<li>See PREREG-2.md.</li>"}</ul>
-<p>Window opens <code>${prereg.match(/Window opens:\*\*\s*`([^`]+)`/)?.[1]}</code>. sha256 of <code>PREREG-2.md</code>: <code>${createHash("sha256").update(prereg).digest("hex")}</code>. Check that it was stored on NEAR before the window: <code>node thesis/check-anchor.mjs</code>.</p>` : ""}
+<p>Window opens <code>${prereg.match(/Window opens:\*\*\s*`([^`]+)`/)?.[1]}</code>. sha256 of <code>PREREG-2.md</code>: <code>${createHash("sha256").update(prereg).digest("hex")}</code>. Timestamped in Bitcoin with OpenTimestamps before the window (proof <code>PREREG-2.md.ots</code>); check it with <code>node thesis/check-anchor.mjs</code>.</p>` : ""}
 <h2>What the top 40 targets actually are</h2>
 <p>About 1 key in 9 points at an account with no contract deployed, while agent infrastructure holds under 2%. Source: <code>node thesis/classify.mjs</code> → <code>data/targets.json</code> (on-chain state, 2026-11-11).</p>
 <table><tr><th>Target kind (from on-chain facts)</th><th>Keys</th><th>Share</th></tr>

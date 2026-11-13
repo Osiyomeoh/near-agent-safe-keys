@@ -29,7 +29,7 @@ An evidence-first investment thesis for NEAR HACKATHON (track: `thesis`). The cl
 | `test/thesis.test.mjs` | Recomputes each headline number from `data/` and checks it against the text |
 | `txshare.mjs` | Samples blocks and classifies each transaction's signing key (free public RPC) |
 | `protocol_switch.mjs` | Finds the block where protocol 87 ended the 30% contract gas rebate (free public RPC) → `data/protocol_switch.json` |
-| `check-anchor.mjs` | Checks that `PREREG-2.md` was fixed on chain before its window opened |
+| `check-anchor.mjs` | Checks the OpenTimestamps proof `PREREG-2.md.ots`: that `PREREG-2.md` is in a Bitcoin block mined at least 2 hours before its window opened |
 | `live.mjs`, `classify.mjs` | Live key state and target classification (public RPC) |
 
 Data source: `bigquery-public-data.crypto_near_mainnet_us.receipt_actions` (https://docs.near.org/data-infrastructure/big-query).

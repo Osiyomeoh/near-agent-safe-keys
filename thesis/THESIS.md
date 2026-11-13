@@ -133,7 +133,7 @@ This is the status of a thesis, not investment advice. A holder's question is wh
 - **Bullish:** a function-call share above 10% for 3 months running, driven by targets that aren't games or logins.
 - **Bearish:** the share falls back under 0.5% once the hackathon ends (watch Nov–Dec 2026).
 - **Computed status:** `verdict()` in `lib.mjs` applies these two rules and the November pre-registration to the committed data: **STRENGTHENING, NOT CONFIRMED**. The tests fail if the code and this text disagree. The dashboard lists which rules fire.
-- **Next test:** [PREREG-2.md](PREREG-2.md) makes three predictions about blocks from 2026-11-14, 06:00–18:00 UTC, before those blocks exist. If function-call keys sign under 11% of that window's transactions, we drop the "common to use" claim. Its sha256 is meant to be stored on NEAR before the window opens, and `node thesis/check-anchor.mjs` shows whether it was.
+- **Next test:** [PREREG-2.md](PREREG-2.md) makes three predictions about blocks from 2026-11-14, 06:00–18:00 UTC, before those blocks exist. If function-call keys sign under 11% of that window's transactions, we drop the "common to use" claim. Its sha256 is timestamped in Bitcoin with [OpenTimestamps](https://opentimestamps.org/) before the window opens (proof: [PREREG-2.md.ots](PREREG-2.md.ots)). `node thesis/check-anchor.mjs` checks that the proof reaches a Bitcoin block mined at least 2 hours before the window.
 
 ## Limits
 

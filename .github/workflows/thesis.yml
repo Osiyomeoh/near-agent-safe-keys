@@ -3,6 +3,7 @@
 #           the text, data files are hash-checked, and the dashboard must match a fresh rebuild.
 #   onchain: once a day (and on every push) re-confirm the sampled receipts against NEAR's
 #           public archival RPC. Kept separate so an RPC rate limit cannot hide a test failure.
+#           It also checks the PREREG-2.md OpenTimestamps proof down to a Bitcoin block header.
 name: thesis
 on:
   push:
@@ -31,3 +32,5 @@ jobs:
         with:
           node-version: 22
       - run: node thesis/verify.mjs
+      - name: PREREG-2.md was timestamped in Bitcoin before its window
+        run: node thesis/check-anchor.mjs

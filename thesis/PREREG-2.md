@@ -1,6 +1,6 @@
 # Pre-registration 2: who signs NEAR's transactions, on blocks that don't exist yet
 
-Written before the window below opened. Unlike [PREDICTION.md](PREDICTION.md), it is about blocks that did not exist when we wrote it. Its sha256 is to be stored on NEAR (SocialDB) before the window opens. `node thesis/check-anchor.mjs` checks whether that happened. It needs no account and doesn't rely on our git history.
+Written before the window below opened. Unlike [PREDICTION.md](PREDICTION.md), it is about blocks that did not exist when we wrote it. Its sha256 is timestamped in Bitcoin with [OpenTimestamps](https://opentimestamps.org/) before the window opens. The proof is [PREREG-2.md.ots](PREREG-2.md.ots), next to this file. To check it, run `node thesis/check-anchor.mjs` or drop both files on opentimestamps.org. Neither needs an account, and neither relies on our git history.
 
 **Window opens:** `2026-11-14T06:00:00Z`
 

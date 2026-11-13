@@ -10,7 +10,7 @@ NEAR accounts can hand out a *function-call key*: it can call one contract, with
 - **For a NEAR holder:** supply grows 2.47% a year, set by issuance. Fees burnt offset about 1% of it, so agent usage doesn't move supply yet.
 - **Against:** 96–97% of new keys are still full-access, and most of the jump is game and app logins, not agents.
 - **Verdict (computed by code from the rules in THESIS.md):** STRENGTHENING, NOT CONFIRMED.
-- **Next test, fixed before its blocks exist:** [`thesis/PREREG-2.md`](thesis/PREREG-2.md) predicts the transaction shares for 2026-11-14, 06:00–18:00 UTC. Its sha256 goes on NEAR before the window opens.
+- **Next test, fixed before its blocks exist:** [`thesis/PREREG-2.md`](thesis/PREREG-2.md) predicts the transaction shares for 2026-11-14, 06:00–18:00 UTC. Its sha256 is timestamped in Bitcoin with OpenTimestamps before the window opens.
 
 [FILL: CI badge, after the repo is public] · Dashboard: [FILL: GitHub Pages URL for `thesis/dashboard/`] · Read: [`thesis/THESIS.md`](thesis/THESIS.md)
 
@@ -22,7 +22,7 @@ NEAR accounts can hand out a *function-call key*: it can call one contract, with
 | `node --test thesis/test/thesis.test.mjs` | every headline number recomputed from `thesis/data/` and matched against the text | [thesis/test/](thesis/test/) |
 | `node thesis/rebuild.mjs --offline` | the dashboard rebuilt from raw data, byte-identical to the committed one | [thesis/rebuild.mjs](thesis/rebuild.mjs) |
 | open `thesis/dashboard/index.html`, press **Verify** | your browser re-checks the 120 receipts against NEAR's public RPC | [thesis/dashboard/](thesis/dashboard/) |
-| `node thesis/check-anchor.mjs` | whether `PREREG-2.md` was fixed on chain before its window opened | [thesis/PREREG-2.md](thesis/PREREG-2.md) |
+| `node thesis/check-anchor.mjs` | whether `PREREG-2.md` was timestamped in a Bitcoin block before its window opened (OpenTimestamps proof, checked against block headers) | [thesis/PREREG-2.md](thesis/PREREG-2.md) |
 
 ## What the brief asked for, and where it is
 
