@@ -39,7 +39,7 @@ All data comes from the NEAR BigQuery public dataset, `bigquery-public-data.cryp
 - **Function-call key additions rose about 9× from August to October** (816 → 7,363).
 - **Distinct target contracts rose about 8× from August to September** (165 → 1,348). The feature is being used by more builders, not just more often.
 - **It isn't just network growth.** Monthly transactions were nearly flat from Aug to Oct (21.1M → 22.6M, +7%), while function-call keys rose 9×. Per million transactions, that's 38.6 → 325.4. Source: `data/activity_by_month.csv`, from `sql/activity_by_month.sql` (7.77 GB scanned).
-- **Builder interest is visible in this hackathon:** 56 of the 137 GitHub repos linked from NEAR HACKATHON demo posts mention function-call keys. This is interest, not usage. Counted with `research/` scripts on Nov 11, 2026.
+- **Builder interest is visible in this hackathon:** 56 of the 137 GitHub repos linked from NEAR HACKATHON demo posts mention function-call keys. This is interest, not usage. List and method: `data/hackathon_fc_key_mentions.json` (README text matched against `/function[- ]call (access )?key/i`, Nov 11, 2026).
 
 ## Evidence against
 

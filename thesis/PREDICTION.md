@@ -14,7 +14,7 @@ Written and committed **before** any November 2026 data was queried. The git com
 - **Caveat stated in advance:** November overlaps the hackathon, so builder testing may inflate the number. That's why the main bearish test stays Nov–Dec, after the hackathon.
 - **Result:** filled in below by a later commit, whatever it shows.
 
-## Result (queried 2026-11-13, after the prediction commit `d8b2a27`)
+## Result (queried 2026-11-13, after the prediction commit `9d19680`)
 
 | Window | Function-call keys | Full-access keys | Share |
 |---|---:|---:|---:|

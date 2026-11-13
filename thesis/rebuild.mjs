@@ -59,7 +59,7 @@ code{font-size:12px}.m{color:var(--muted)}</style></head><body>
 <p>Each number comes from the NEAR BigQuery public dataset. Check it with no account: <code>node thesis/verify.mjs</code>, which confirms sampled receipts against NEAR's public archival RPC.</p>
 <h2>Function-call keys as a share of all new keys</h2>
 <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Function-call key share by month">${bars}</svg>
-<p><b>Pre-registered test:</b> before querying November, we committed a prediction that the share would stay at or above 2.0% (<code>PREDICTION.md</code>, commit <code>d8b2a27</code>). Nov 1–13 came in at <b>${(100 * nov.fc / (nov.fc + nov.full)).toFixed(2)}%</b> (${fmt(nov.fc)} function-call keys, ${fmt(nov.full)} full-access). Query: <code>sql/keys_nov_to_date.sql</code>.</p>
+<p><b>Pre-registered test:</b> before querying November, we committed a prediction that the share would stay at or above 2.0% (<code>PREDICTION.md</code>, commit <code>9d19680</code>). Nov 1–13 came in at <b>${(100 * nov.fc / (nov.fc + nov.full)).toFixed(2)}%</b> (${fmt(nov.fc)} function-call keys, ${fmt(nov.full)} full-access). Query: <code>sql/keys_nov_to_date.sql</code>.</p>
 <p>Through October the share stayed under 3%; up about 9× from August to October. Query: <code>sql/keys_by_month_mar_oct.sql</code>.</p>
 <table><tr><th>Month</th><th>Full-access</th><th>Function-call</th><th>Share</th><th>Targets</th></tr>
 ${months.map((m) => `<tr><td>${m.month.slice(0, 7)}</td><td>${fmt(m.add_key_full_access)}</td><td>${fmt(m.add_key_function_call)}</td><td>${m.share.toFixed(2)}%</td><td>${fmt(m.distinct_fc_receivers)}</td></tr>`).join("")}</table>

@@ -1,0 +1,691 @@
+{
+ "counted_at": "2026-11-11",
+ "source": "GitHub repos linked from NEAR HACKATHON demo posts (nearhackathon.com/api/projects + X oEmbed); README scanned with /function[- ]call (access )?key/i",
+ "rows": [
+  {
+   "repo": "Bronxydrone/Veto",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "soldanoandrea/allowance",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "soldanoandrea/near-thesis",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "hassaanraja282-lgtm/leashpay",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "mubudot/near-agent-spend-guard",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "dckwai-lab/aurea-contract",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Alamutu1/near-thesis-tested",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "kimdooo-a/tollgate",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "tim963852741/intentguard",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "tenxagent/blackbox",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "tmdry4530/agent-pay-public",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "archtum66-dev/terra-matcher",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Hothit1/pinpay",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Hothit1/deaddrop",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "tuneupargentina/tuneup-research-desk",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "tuneupargentina/bolsillos",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "tmdry4530/tee-receipts",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "devx-agent/near-agent-toll",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "devx-agent/near-paypercall",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "tab-for-akshay/agent-leash",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "sadrax4/holdup",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "minotorxbt/approval-moment",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "krallkan/payguard",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "rafael-arkhe/near-hackathon",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "IhorMuliar/nearbooks",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "ClaudeOpusPremiumAgent/deed",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "Raindess69/near-usage-thesis",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "3Nerion7/near-feelens",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "ClaudeOpusPremiumAgent/flock",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "hycorange/near-leash",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "MarwanWidjaya/nearguard",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "dipo0x/tollgate",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "vijaygopalbalasa/judge-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "5wt6fw45nt-design/cobra-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "alhassanmohammederc3643-cmyk/x402-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "iskander-kudashev-13/agent-treasury",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "aierosite/agent-crash-lab",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "nearswaps/nearswaps-agents",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "asosa933/agent-allowance-guard",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "rjrajput-web3/vaultguard",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "akhilexx/xauconnect-gold-router",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Night-Etrenal/agentguard-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "dukemawex/clearsend-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "ctmakc/redactgate",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "surs51/IntentWatch",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "rajeshmullippa-collab/near-thesis",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "halfabillion/near-leash",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "Axlnd3r/NePu",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "ace-coderr/penstock",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Timidan/lifeguard",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "nehaiqoo-source/GhostSign",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "0xdavid01/Payproof-Global",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "emmanuelist/warrant",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "ProMartY/near-spending-vault",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "johnnydepp1992/AgentGuard",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "zhic49280-oss/predictee",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Sketchify-Dev/settleform",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "lisaaai200/near-usage-thesis",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "lisaaai200/agent-fence",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "Ber254/roomy",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "KushnerykPavel/cartelbreaker",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "SammyCodes1/Relay",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "unpairxyz/unpair",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "archtum66-dev/sealed-dossier",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Gliana-Labs/gliana-near-x402",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "chipsforbeer/near-supply-mcp",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "GGGODLIN/near-ghost-shift",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "efeaizesogie/meridian-town",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "Hantsuo/near-agent-wallet",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "karen10kazemi/agentpay-ai",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Marc-Dvci/lockstep",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "ebenbaruk/TokenGo",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "saltxd/near-payment-guard",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "mosesfawole/near-replay-lab",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "GGGODLIN/near-afterlight",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "gm456789123-code/NEAR-HACKATHON",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "chipsforbeer/loglines",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Mramaran/termwork",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "yyred-max/villagebill",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "GOSUN-CAPITAL/omniyield-protocol",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "ianlyoo/calydon",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "jamesparser/hack-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "yunganas/near-swarm",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "1momoh/crucible",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "sasindu-smart/allowance",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "mohammedfirdouss/swarmshop",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "l3ockydev/near-thesis-dashboard",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "ykbojak-alt/hivebid",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "RaphaelC4/Paylink",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "saltxd/headcount",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "sparkplug604/four-horsemen-of-the-memepocalypse",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "leoresendedop-sys/nearjev",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "ammardira/mintcheck-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Feymarl/MintGuard",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "kontoru-agent/bountybot",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "Marc-Dvci/lifo",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "buahrasa01-hub/agent-allowance-guard",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "amdonatusprince/Marks-on-Near",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "wadadawadada/cipherwork",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Salardx/btcpayserver-plugins",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "icallshelby/near-thesis-model",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "ariefms/taskbounty",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "meliksahbarsbay/nearagent",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "jamesparser/quant-agent",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "0xward/Twinnear",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Subash-2207/near-phoenix",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Trish7891/handoff-escrow",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "talibot-agent/leash",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "kwesitetteh2003-jpg/sikasend",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "J4n4n/near-drip",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "Zoltame/circuit-breaker",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "PravinrajV/kring",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "semilla1lab/semilla1-near-thesis",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "nnyycc77-ship-it/trust-toll-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "Topeseun/near-intents-investment-thesis",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "aramexbit/foreman",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "FalkramHQ/skyll-private-grading",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "aselolee99/agent-vault",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "0xNana/santa-on-near",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "g4stein/zerodelta",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "daodudestiny56-netizen/near-memcoin",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "neezer28/OJAagent",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "chaboss-work/provable-alpha",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "sawi57003-ops/near-sentinel",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "SIDDHUX9/Inari",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "avelex/gateflow",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "sasindu-smart/carefund",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "harshaljagdale0222/agent-guard",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "prasad-anandappa/agentguard",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "alnitak34/titan-excubat",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "devluca999/evernear",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "nauvalzuhdy/lot-passport",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "BonyNode/xprimeflow-near-intents",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "brandontomlin2/near-2026-hackathon",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "Akihiko-7/Rota",
+   "readme_fetched": true,
+   "mentions_function_call_key": true
+  },
+  {
+   "repo": "tydavid5/recall-wallet",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  },
+  {
+   "repo": "thomasdevving/capfare",
+   "readme_fetched": true,
+   "mentions_function_call_key": false
+  }
+ ]
+}

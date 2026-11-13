@@ -4,3 +4,11 @@
 node_modules/
 supplier-purse/
 .DS_Store
+
+# Internal notes and raw crawl: kept local, not published
+BRAINSTORM.md
+WIN-DECISION.md
+research/
+spikes/
+thesis/SUBMISSION-DRAFT.md
+thesis/data/run.err
