@@ -6,7 +6,7 @@ body{background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif;max
 svg{width:100%;height:auto}svg text{fill:var(--fg);font-size:11px}table{border-collapse:collapse;width:100%;font-size:13px}
 td,th{border-bottom:1px solid var(--line);padding:4px 6px;text-align:right}td:first-child,th:first-child{text-align:left}
 code{font-size:12px}.m{color:var(--muted)}</style></head><body>
-<h1>NEAR's agent-safe keys: real, almost unused, just starting to move</h1>
+<h1>NEAR's agent-safe keys: rare to add, common to use, just starting to spread</h1>
 <p>Each number comes from the NEAR BigQuery public dataset. Check it with no account: <code>node thesis/verify.mjs</code>, which confirms sampled receipts against NEAR's public archival RPC.</p>
 <h2>Function-call keys as a share of all new keys</h2>
 <svg viewBox="0 0 640 240" role="img" aria-label="Function-call key share by month"><rect x="42" y="203.49976073138183" width="59" height="0.5002392686181809" fill="var(--bar)"><title>2026-03-01: 0.01%</title></rect>
@@ -41,6 +41,30 @@ code{font-size:12px}.m{color:var(--muted)}</style></head><body>
 <p>From August to October, transactions rose 7% while function-call keys rose 9×. Query: <code>sql/activity_by_month.sql</code>.</p>
 <table><tr><th>Month</th><th>Transactions</th><th>Active signers</th><th>Function-call keys per 1M tx</th></tr>
 <tr><td>2026-03</td><td>107,857,335</td><td>381,465</td><td>7.9</td></tr><tr><td>2026-04</td><td>28,398,312</td><td>335,794</td><td>29.0</td></tr><tr><td>2026-05</td><td>24,893,046</td><td>359,151</td><td>36.2</td></tr><tr><td>2026-06</td><td>24,415,046</td><td>302,563</td><td>24.5</td></tr><tr><td>2026-07</td><td>22,874,925</td><td>252,587</td><td>18.5</td></tr><tr><td>2026-08</td><td>21,131,379</td><td>215,609</td><td>38.6</td></tr><tr><td>2026-09</td><td>24,004,533</td><td>302,272</td><td>248.4</td></tr><tr><td>2026-10</td><td>22,627,935</td><td>826,700</td><td>325.4</td></tr></table>
+<h2>Who signs NEAR's transactions?</h2>
+<p>Function-call keys are a few percent of new keys, but they sign 13.1% of transactions. 134 of those 200 use a key for <code>intents.near</code>, from 1 signer; in all, 29 accounts sign this way against 384 with full-access keys. Source: <code>node thesis/txshare.mjs</code>, 300 random blocks from 2026-10-01 to 2026-11-13 (seed 1001), 1,521 transactions, each signing key read on chain.</p>
+<table><tr><th>Measure (share of sampled transactions)</th><th>Value</th></tr>
+<tr><td>Signed with a function-call key</td><td><b>13.1%</b> <span class="m">(95% interval 11.2%–15.6%)</span></td></tr>
+<tr><td>Share of NEAR burnt by those transactions</td><td><b>11.2%</b> <span class="m">(95% interval 7.4%–16.7%)</span></td></tr>
+<tr><td>Signed with a function-call key for Intents or Chain Signatures</td><td><b>10.2%</b> <span class="m">(95% interval 8.6%–12.2%)</span></td></tr></table>
+<p class="m">Intervals resample whole blocks (2,000 draws, fixed seed), because one relayer can fill a block. 0 of 1,521 transactions had no readable key and are left out.</p>
+<table><tr><th>Function-call key for</th><th>Transactions</th><th>Signers</th><th>Example</th></tr>
+<tr><td>intents.near</td><td>134</td><td>1</td><td><a href="https://nearblocks.io/txns/By93eNuMxUDeofFSbcZvyd4covfcLHkBUs8DUKozyneX">tx</a></td></tr><tr><td>v2.ref-finance.near</td><td>26</td><td>4</td><td><a href="https://nearblocks.io/txns/5pmPK7gWqnyykJPYoDwqjRWEnYy1T1mQhJCVcp9YBWWz">tx</a></td></tr><tr><td>v1.signer</td><td>21</td><td>11</td><td><a href="https://nearblocks.io/txns/4HUdQGRfwRG1Bhp3AhpEkWkPwiKYjvBros1m9g6HFDe5">tx</a></td></tr><tr><td>nearlytrade.near</td><td>4</td><td>1</td><td><a href="https://nearblocks.io/txns/Ae9Yng4WmwUwE4ZWfg4xnFXWiaN7nAKmYMqpuNB3NZtC">tx</a></td></tr><tr><td>wallet.kaiching</td><td>3</td><td>1</td><td><a href="https://nearblocks.io/txns/BV9ym34PC9G67Smxvn5vovaeg7tWRRHDF2bHNZLPJKPL">tx</a></td></tr><tr><td>v2_1.omni.hot.tg</td><td>2</td><td>1</td><td><a href="https://nearblocks.io/txns/5kbwDXsK7tp72Z1AKGn25x4yQ7C7kutYVw9DRDrAzYLW">tx</a></td></tr><tr><td>aurora</td><td>2</td><td>2</td><td><a href="https://nearblocks.io/txns/BhpKDujzvNskdMhAN7C3g5SkebKoSQ8WLKZKkVAUzmyG">tx</a></td></tr><tr><td>0x86b14e5375d01286f8ff85fec5c3f114e46eed19</td><td>1</td><td>1</td><td><a href="https://nearblocks.io/txns/Uu87UzodAEd4186Uo6eSf4U5wafmthGMKYKMpgNS5y6">tx</a></td></tr><tr><td>0x6b0bf85de9a4838387179288f87f475eb3154f07</td><td>1</td><td>1</td><td><a href="https://nearblocks.io/txns/AyVKQ4rm1r6U4juARhogpiGBKYpDAUPCyoVMHQ8zQPYL">tx</a></td></tr><tr><td>contract.saifu-network.near</td><td>1</td><td>1</td><td><a href="https://nearblocks.io/txns/GyZeMvmUCp5KJG4FY9Noaw45qSsfFZ1XvgyFBdfSyepR">tx</a></td></tr></table>
+<h2>What this means for a NEAR holder</h2>
+<p>Fees burnt offset about 1% of new issuance, so supply still grows about 2.47% a year. Burn would have to grow about 92 times to cancel issuance, so agent-safe keys are not yet a supply effect. This is the status of a thesis, not investment advice.</p>
+<table><tr><th>Measure</th><th>Value</th><th>Source</th></tr>
+<tr><td>Total supply, 2026-10-01 → 2026-11-12</td><td>1,307,742,039 → 1,311,523,824 NEAR</td><td>block headers</td></tr>
+<tr><td>Net supply growth, annualized</td><td>2.47%</td><td>block headers</td></tr>
+<tr><td>Issuance cap (max_inflation_rate)</td><td>2.5%</td><td><code>data/protocol_config.json</code></td></tr>
+<tr><td>NEAR burnt, annualized</td><td>354,044 NEAR (0.027% of supply)</td><td>chunk headers of sampled blocks</td></tr>
+<tr><td>NEAR burnt, annualized, only blocks after the 30% contract gas rebate ended (block 223,012,337, 2026-11-04 11:46 UTC; 61 sampled blocks)</td><td>315,587 NEAR, about 1.0% of issuance</td><td><code>data/protocol_switch.json</code></td></tr>
+<tr><td>Share of that burn from function-call-key transactions</td><td>11.2%</td><td>transaction outcomes</td></tr></table>
+<h2>Thesis status, computed</h2>
+<p><b>STRENGTHENING, NOT CONFIRMED</b>. The rules come from THESIS.md ("What would change our mind") and are applied by <code>verdict()</code> in <code>lib.mjs</code>. This is the status of the thesis, not a buy or sell call.</p>
+<table><tr><th>Rule</th><th>Fires?</th></tr><tr><td>Function-call share of new keys above 10% for 3 months running</td><td>no</td></tr><tr><td>Function-call share of new keys back under 0.5% after the hackathon</td><td>no</td></tr><tr><td>Pre-registered: November share at or above 2.0%</td><td>yes</td></tr></table>
+<h2>Next pre-registered test</h2>
+<ul><li>Prediction 1: in 200 random blocks from the window, function-call keys sign at least 11% of transactions. Oct 1 – Nov 12 measured 13.1% (95% interval 11.2–15.6%).</li><li>Prediction 2: function-call keys for Intents or Chain Signatures (<code>intents.near</code>, <code>v1.signer</code>) sign at least 8% of transactions. Oct 1 – Nov 12 measured 10.2% (95% interval 8.6–12.2%).</li><li>Prediction 3: <code>intents.near</code> is the most common function-call key target among the window's sampled transactions, with strictly more transactions than any other target, as it was in Oct 1 – Nov 12 (134 of 200 function-call-key transactions).</li></ul>
+<p>Window opens <code>2026-11-14T06:00:00Z</code>. sha256 of <code>PREREG-2.md</code>: <code>56d0d5c5d549920ba7648cb11a891c8ef4a759051d0c6f25edf98f2e3b78d4c2</code>. Check that it was stored on NEAR before the window: <code>node thesis/check-anchor.mjs</code>.</p>
 <h2>What the top 40 targets actually are</h2>
 <p>About 1 key in 9 points at an account with no contract deployed, while agent infrastructure holds under 2%. Source: <code>node thesis/classify.mjs</code> → <code>data/targets.json</code> (on-chain state, 2026-11-11).</p>
 <table><tr><th>Target kind (from on-chain facts)</th><th>Keys</th><th>Share</th></tr>

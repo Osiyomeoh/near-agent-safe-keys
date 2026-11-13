@@ -5,7 +5,7 @@ An evidence-first investment thesis for NEAR HACKATHON (track: `thesis`). The cl
 ## Check it in 60 seconds (no account, no key, no npm install)
 
 1. Run `node thesis/verify.mjs` (Node 18+).
-   - **You'll see:** `OK sha256` for both data files, then `120/120 sampled receipts confirmed on chain`.
+   - **You'll see:** `OK  sha256` for every file listed in `data/SHA256SUMS`, then `120/120 sampled receipts confirmed on chain`.
    - Every count we publish is backed by receipts you can fetch from NEAR's public archival RPC.
 2. Run `node thesis/rebuild.mjs`, then open `thesis/dashboard/index.html`.
    - **You'll see:** the function-call share chart (0.01% in March → 2.69% in October), and the top 20 contracts. Each contract has receipt links (r1–r3) that open on nearblocks.io.
@@ -24,12 +24,19 @@ An evidence-first investment thesis for NEAR HACKATHON (track: `thesis`). The cl
 | `sql/` | Every query, filtered on `block_date` |
 | `data/` | The query results, with `SHA256SUMS` |
 | `verify.mjs` | The on-chain spot check |
-| `rebuild.mjs` | One command that rebuilds everything |
+| `rebuild.mjs` | One command that rebuilds everything (`--offline`: dashboard only, no network) |
+| `lib.mjs` | The pure functions behind every published number (shares, intervals, verdict) |
+| `test/thesis.test.mjs` | Recomputes each headline number from `data/` and checks it against the text |
+| `txshare.mjs` | Samples blocks and classifies each transaction's signing key (free public RPC) |
+| `protocol_switch.mjs` | Finds the block where protocol 87 ended the 30% contract gas rebate (free public RPC) → `data/protocol_switch.json` |
+| `check-anchor.mjs` | Checks that `PREREG-2.md` was fixed on chain before its window opened |
+| `live.mjs`, `classify.mjs` | Live key state and target classification (public RPC) |
 
 Data source: `bigquery-public-data.crypto_near_mainnet_us.receipt_actions` (https://docs.near.org/data-infrastructure/big-query).
 
 ## Disclosures
 
-- The scripts in this folder (`verify.mjs`, `rebuild.mjs`, `live.mjs`, `classify.mjs`, `sql/`) were written with AI help (Claude Code), then reviewed and run by the author.
+- **Other entry by the same author (NEAR HACKATHON Q-015):** *Supplier Purse*, an AI agent that pays only verified suppliers from a TEE-held NEAR wallet, at [FILL: Supplier Purse repo URL]. The two projects are independent and share no code.
+- The scripts in this folder (`verify.mjs`, `rebuild.mjs`, `lib.mjs`, `txshare.mjs`, `protocol_switch.mjs`, `check-anchor.mjs`, `live.mjs`, `classify.mjs`, `test/`, `sql/`) were written with AI help (Claude Code), then reviewed and run by the author.
 - Every number comes from a recorded run. Nothing is seeded or illustrative.
 - License: MIT (see `LICENSE`).

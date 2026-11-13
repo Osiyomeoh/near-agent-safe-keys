@@ -1,0 +1,57 @@
+{
+  "source": "https://archival-rpc.mainnet.fastnear.com",
+  "method": "EXPERIMENTAL_protocol_config by block_id, binary search",
+  "release_notes": "https://github.com/near/nearcore/releases/tag/2.14.0",
+  "ran_at": "2026-11-13T15:26:14.631Z",
+  "rpc_calls": 81,
+  "switches": [
+    {
+      "from": 86,
+      "to": 87,
+      "last_block": {
+        "height": 223012336,
+        "hash": "DFb7e5JQyEzSLn9yyFrZHvkH9mEKRKyBvS2k45EMaSN5",
+        "time": "2026-11-04T11:46:28.387Z",
+        "protocol_version": 86,
+        "burnt_gas_reward": [
+          3,
+          10
+        ]
+      },
+      "first_block": {
+        "height": 223012337,
+        "hash": "7pVtLdEPFJzSVYjEUsP9zWDohnY1kTU88Fk3L7MgcyMf",
+        "time": "2026-11-04T11:46:29.014Z",
+        "protocol_version": 87,
+        "burnt_gas_reward": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "from": 87,
+      "to": 88,
+      "last_block": {
+        "height": 223314736,
+        "hash": "76qo5kt5C19RL61dGYqBz1dwQNrdSVbbfeGPvxPJdqZ9",
+        "time": "2026-11-06T12:17:41.701Z",
+        "protocol_version": 87,
+        "burnt_gas_reward": [
+          0,
+          1
+        ]
+      },
+      "first_block": {
+        "height": 223314737,
+        "hash": "J1L2R2sAkRa36wPR8fDX6ZdFxFULJ3BgtrJmH3KLtFjc",
+        "time": "2026-11-06T12:17:42.225Z",
+        "protocol_version": 88,
+        "burnt_gas_reward": [
+          0,
+          1
+        ]
+      }
+    }
+  ]
+}

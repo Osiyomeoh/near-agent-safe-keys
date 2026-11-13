@@ -1,0 +1,37 @@
+{
+ "source": "https://rpc.mainnet.fastnear.com",
+ "method": "EXPERIMENTAL_protocol_config",
+ "params": {
+  "block_id": 224380400
+ },
+ "block": {
+  "height": 224380400,
+  "hash": "3FkKLnR57VNJGjab4yVb9wvfpND4pfsUXBZvSJmwim84",
+  "time": "2026-11-13T15:11:15.599Z",
+  "total_supply": "1311599832693959762996936778818097"
+ },
+ "note": "Selected fields of the RPC response, unchanged. Rates are [numerator, denominator].",
+ "fields": {
+  "protocol_version": 88,
+  "chain_id": "mainnet",
+  "epoch_length": 43200,
+  "num_blocks_per_year": 31536000,
+  "max_inflation_rate": [
+   1,
+   40
+  ],
+  "protocol_reward_rate": [
+   0,
+   1
+  ],
+  "min_gas_price": "1000000000",
+  "gas_price_adjustment_rate": [
+   1,
+   100
+  ],
+  "burnt_gas_reward": [
+   0,
+   1
+  ]
+ }
+}

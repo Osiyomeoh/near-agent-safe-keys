@@ -1,0 +1,33 @@
+# Thesis checks. No secrets, no keys, no BigQuery: everything here is free and public.
+#   tests:  every headline number in THESIS.md is recomputed from thesis/data and compared with
+#           the text, data files are hash-checked, and the dashboard must match a fresh rebuild.
+#   onchain: once a day (and on every push) re-confirm the sampled receipts against NEAR's
+#           public archival RPC. Kept separate so an RPC rate limit cannot hide a test failure.
+name: thesis
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test thesis/test/thesis.test.mjs
+      - name: Dashboard is current
+        run: node thesis/rebuild.mjs --offline && git diff --exit-code thesis/dashboard
+  onchain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node thesis/verify.mjs

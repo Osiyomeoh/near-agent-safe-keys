@@ -14,6 +14,13 @@ Written and committed **before** any November 2026 data was queried. The git com
 - **Caveat stated in advance:** November overlaps the hackathon, so builder testing may inflate the number. That's why the main bearish test stays Nov–Dec, after the hackathon.
 - **Result:** filled in below by a later commit, whatever it shows.
 
+## How strong is this proof? (added afterwards, so nobody has to find it out alone)
+
+- A git commit time is set by the committer's own clock and can be edited. It shows the order we claim, not a time anyone else witnessed.
+- The prediction commit (`9d19680`, 14:03:00 +01:00) and the result commit (`052f270`, 14:04:45 +01:00) are 1 min 45 s apart.
+- Before publishing, we rewrote this repo's history once to drop internal notes. That changed the commit hashes (the prediction was `d8b2a27` before). It did not change this file or the commit order.
+- So read this test as an honest record, not as proof. The next prediction is different: it is about blocks that did not exist when we wrote it. Its hash is meant to be recorded outside git before its window opens, and anyone can check that (see [PREREG-2.md](PREREG-2.md)).
+
 ## Result (queried 2026-11-13, after the prediction commit `9d19680`)
 
 | Window | Function-call keys | Full-access keys | Share |
