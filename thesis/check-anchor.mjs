@@ -8,8 +8,8 @@
 // transaction. The proof, PREREG-2.md.ots, is a list of hash operations that turns the file's
 // sha256 into the merkle root of a Bitcoin block. This script:
 //   1. hashes PREREG-2.md and checks that the proof starts from that hash;
-//   2. replays every operation in the proof; for a branch still marked pending, it asks that
-//      calendar for the rest of the path (GET <calendar>/timestamp/<commitment>);
+//   2. replays every operation in the proof. If the file has no Bitcoin attestation yet, it asks
+//      each pending calendar for the rest of the path (GET <calendar>/timestamp/<commitment>);
 //   3. downloads the claimed block header from two public explorers and checks that they agree,
 //      that the header hashes to the block's hash, and that it meets its own proof-of-work target.
 //      Then it checks that the replayed result equals the merkle root inside the header;
@@ -112,8 +112,9 @@ const pending = leaves.filter((l) => l.kind === "pending"), btc = leaves.filter(
 console.log(`     in the file: ${btc.length} Bitcoin attestation(s), ${pending.length} pending at ${pending.map((p) => new URL(p.uri).host).join(", ")}`);
 if (OFFLINE) process.exit(0);
 
-// 2. complete pending branches from their calendars
-for (const p of pending) {
+// 2. complete pending branches from their calendars, only if the file has no Bitcoin attestation
+//    yet (a complete proof is checked without contacting any calendar)
+for (const p of btc.length ? [] : pending) {
   if (!/^https:\/\/[a-z0-9.-]+$/i.test(p.uri)) { console.log(`     skipped calendar ${p.uri} (not a plain https host)`); continue; }
   const body = await get(`${p.uri}/timestamp/${p.msg.toString("hex")}`, true).catch(() => undefined);
   if (body === undefined) { console.log(`     ${new URL(p.uri).host}: no answer`); continue; }
