@@ -12,7 +12,7 @@ NEAR accounts can hand out a *function-call key*: it can call one contract, with
 - **Verdict (computed by code from the rules in THESIS.md):** STRENGTHENING, NOT CONFIRMED.
 - **Next test, fixed before its blocks exist:** [`thesis/PREREG-2.md`](thesis/PREREG-2.md) predicts the transaction shares for 2026-11-14, 06:00–18:00 UTC. Its sha256 is in Bitcoin block 975,705 (OpenTimestamps), mined 10.3 hours before the window opened.
 
-[FILL: CI badge, after the repo is public] · Dashboard: [FILL: GitHub Pages URL for `thesis/dashboard/`] · Read: [`thesis/THESIS.md`](thesis/THESIS.md)
+[![thesis checks](https://github.com/Osiyomeoh/near-agent-safe-keys/actions/workflows/thesis.yml/badge.svg)](https://github.com/Osiyomeoh/near-agent-safe-keys/actions/workflows/thesis.yml) · Dashboard: [osiyomeoh.github.io/near-agent-safe-keys](https://osiyomeoh.github.io/near-agent-safe-keys/) · Read: [`thesis/THESIS.md`](thesis/THESIS.md)
 
 ## Check it yourself (Node 18+, no account, no key, no npm install)
 
