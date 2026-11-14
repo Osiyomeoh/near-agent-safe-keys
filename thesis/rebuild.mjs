@@ -103,21 +103,24 @@ ${buckets.map(([k, v]) => `<tr><td>${k}</td><td>${fmt(v)}</td><td>${((100 * v) /
 <table><tr><th>Contract</th><th>Keys</th><th>Accounts</th><th>Check it yourself</th></tr>
 ${recv.slice(0, 20).map((r) => `<tr><td>${r.fc_receiver}</td><td>${fmt(+r.fc_keys)}</td><td>${fmt(+r.accounts)}</td><td>${r.sample_receipts.map((id, i) => `<a href="https://nearblocks.io/receipts/${id}">r${i + 1}</a>`).join(" ")}</td></tr>`).join("")}</table>
 <h2>Check it live, in your browser</h2>
-<p>This button asks NEAR's public RPC, from your browser with no account, for each of the 120 sampled receipts. It confirms that each one added the function-call key we counted, then checks whether that key still exists today.</p>
+<p>This button asks NEAR's public RPC, from your browser with no account, for each of the 120 sampled receipts. It confirms that each one added the function-call key we counted, then checks whether that key still exists today. It takes one to two minutes: the free public RPC allows only a few requests a second.</p>
 <p><button id="go">Verify 120 receipts on NEAR mainnet now</button> <span id="st" class="m"></span></p>
 <p id="res"></p>
 <script>
 const S=${JSON.stringify(recv.map((r) => [r.fc_receiver, r.sample_receipts]))};
-const A="https://archival-rpc.mainnet.fastnear.com",L="https://rpc.mainnet.fastnear.com";
-async function rpc(u,m,p){for(let i=0;i<8;i++){const r=await fetch(u,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:m,params:p})});if(r.status===429){await new Promise(s=>setTimeout(s,2000*(i+1)));continue}return r.json()}return{}}
-document.getElementById("go").onclick=async(e)=>{e.target.disabled=true;let n=0,ok=0,live=0;const st=document.getElementById("st");
-for(const[rcv,ids]of S)for(const id of ids){n++;st.textContent=n+"/120 checked";
-const rc=(await rpc(A,"EXPERIMENTAL_receipt",{receipt_id:id})).result;
-const ak=rc&&rc.receipt.Action&&rc.receipt.Action.actions.find(a=>a.AddKey&&a.AddKey.access_key.permission.FunctionCall&&a.AddKey.access_key.permission.FunctionCall.receiver_id===rcv);
+const A="https://archival-rpc.mainnet.fastnear.com",L="https://rpc.mainnet.fastnear.com",last={},wait=(ms)=>new Promise((r)=>setTimeout(r,ms));
+// The free RPC answers a burst of requests, then about 2 a second. Its rate-limit reply (429) has no CORS header, so a browser sees it as a failed fetch. So: pace each host, retry after a pause, and return null if it never answers.
+async function rpc(u,m,p){for(let i=0;i<8;i++){const gap=550-(Date.now()-(last[u]||0));if(gap>0)await wait(gap);last[u]=Date.now();
+try{const r=await fetch(u,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:m,params:p})});if(r.ok)return await r.json()}catch(e){}
+await wait(1500*(i+1))}return null}
+document.getElementById("go").onclick=async(e)=>{e.target.disabled=true;let n=0,ok=0,live=0,gone=0,miss=0;const st=document.getElementById("st");
+try{for(const[rcv,ids]of S)for(const id of ids){n++;st.textContent=n+"/120 checked";
+const j=await rpc(A,"EXPERIMENTAL_receipt",{receipt_id:id});if(!j){miss++;continue}
+const rc=j.result,ak=rc&&rc.receipt.Action&&rc.receipt.Action.actions.find(a=>a.AddKey&&a.AddKey.access_key.permission.FunctionCall&&a.AddKey.access_key.permission.FunctionCall.receiver_id===rcv);
 if(!ak)continue;ok++;
 const v=await rpc(L,"query",{request_type:"view_access_key",finality:"final",account_id:rc.receiver_id,public_key:ak.AddKey.public_key});
-if(v.result&&!v.result.error)live++}
-document.getElementById("res").innerHTML="<b>"+ok+"/"+n+"</b> receipts confirmed on chain. <b>"+live+"</b> of those keys still exist right now; "+(ok-live)+" have been deleted. (Our run on 2026-11-11 found 120/120 confirmed and 75 still live.)";st.textContent="done at "+new Date().toISOString()}
+if(!v)miss++;else if(v.result&&!v.result.error)live++;else gone++}}finally{e.target.disabled=false}
+document.getElementById("res").innerHTML="<b>"+ok+"/"+n+"</b> receipts confirmed on chain. <b>"+live+"</b> of those keys still exist right now; "+gone+" have been deleted."+(miss?" "+miss+" requests got no answer from the RPC; press the button again.":"")+" (Our run on 2026-11-11 found 120/120 confirmed and 75 still live.)";st.textContent="done at "+new Date().toISOString()}
 </script>
 <p class="m">Built by <code>node thesis/rebuild.mjs</code>. See THESIS.md for the evidence against and what would change our mind.</p>
 </body></html>`;
