@@ -37,7 +37,6 @@ Data source: `bigquery-public-data.crypto_near_mainnet_us.receipt_actions` (http
 
 ## Disclosures
 
-- **Other entry by the same author (NEAR HACKATHON Q-015):** *Supplier Purse*, an AI agent that pays only verified suppliers from a TEE-held NEAR wallet, at [FILL: Supplier Purse repo URL]. The two projects are independent and share no code.
 - The scripts in this folder (`verify.mjs`, `rebuild.mjs`, `lib.mjs`, `txshare.mjs`, `protocol_switch.mjs`, `check-anchor.mjs`, `score-prereg2.mjs`, `live.mjs`, `classify.mjs`, `test/`, `sql/`) were written with AI help (Claude Code), then reviewed and run by the author.
 - Every number comes from a recorded run. Nothing is seeded or illustrative.
 - License: MIT (see `LICENSE`).

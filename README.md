@@ -41,7 +41,6 @@ NEAR accounts can hand out a *function-call key*: it can call one contract, with
 
 ## Disclosures
 
-- **Other entry by the same author (NEAR HACKATHON Q-015):** *Supplier Purse*, an AI agent that pays only verified suppliers from a TEE-held NEAR wallet, at [FILL: Supplier Purse repo URL]. The two projects are independent and share no code.
 - Written with AI help (Claude Code), then reviewed and run by the author.
 - Not investment advice. "Verdict" means the status of this thesis under its own stated rules.
 - License: MIT ([`thesis/LICENSE`](thesis/LICENSE)).
