@@ -166,6 +166,42 @@ test("PREREG-2.md.ots is an OpenTimestamps proof of this exact PREREG-2.md, and 
   assert.ok(bad.stdout.startsWith("FAIL"));
 });
 
+test("PREREG-2 scorer reads its rules from the stamped PREREG-2.md, and the frozen code still matches", async () => {
+  const { STAMPED_SHA256, readPrereg } = await import("../score-prereg2.mjs");
+  const text = read("thesis/PREREG-2.md");
+  assert.equal(createHash("sha256").update(text).digest("hex"), STAMPED_SHA256, "PREREG-2.md is the file in the OpenTimestamps proof");
+  const r = readPrereg(text);
+  assert.deepEqual(r.window, { from: "2026-11-14T06:00:00Z", to: "2026-11-14T18:00:00Z" });
+  assert.deepEqual(r.command, { from: r.window.from, to: r.window.to, blocks: 200, seed: 1114, out: "data/txshare_prereg2.json" });
+  assert.equal(r.p1_min, 11);
+  assert.equal(r.p2_min, 8);
+  assert.equal(r.p3_target, "intents.near");
+  assert.equal(r.rows.length, 3);
+  assert.deepEqual(Object.keys(r.frozen).sort(), ["thesis/lib.mjs", "thesis/txshare.mjs"]);
+  for (const [f, h] of Object.entries(r.frozen)) assert.equal(createHash("sha256").update(readFileSync(join(root, f))).digest("hex"), h, `${f} changed after PREREG-2.md froze it`);
+});
+
+test("PREREG-2 scorer applies the rules as written (dry run on the Oct 1 – Nov 12 sample reproduces the quoted baselines)", async () => {
+  const { readPrereg, scorePrereg2, checkRun } = await import("../score-prereg2.mjs");
+  const rules = readPrereg(read("thesis/PREREG-2.md"));
+  const dry = scorePrereg2(tx, rules);
+  assert.equal(dry.predictions[0].value.toFixed(1), "13.1");
+  assert.equal(dry.predictions[1].value.toFixed(1), "10.2");
+  assert.equal(dry.predictions[2].lead.txs, 134);
+  assert.equal(tx.fc_txs, 200);
+  assert.equal(dry.row, 1);
+  assert.ok(checkRun(txFile, rules).length > 0, "the Oct 1 – Nov 12 file is not accepted as the PREREG-2 run");
+  // Rule wiring on made-up summaries (test inputs only, not data):
+  const s = (p1, p2, top) => ({ fc_tx_share: { point: p1 }, agent_tx_share: { point: p2 }, top_fc_receivers: top.map(([fc_receiver, txs]) => ({ fc_receiver, txs })) });
+  const lead = [["intents.near", 9], ["x.near", 3]];
+  assert.equal(scorePrereg2(s(11, 8, lead), rules).row, 1, "a bar is met at exactly the bar");
+  assert.equal(scorePrereg2(s(12, 7.99, lead), rules).row, 2);
+  assert.equal(scorePrereg2(s(12, 9, [["intents.near", 5], ["x.near", 5]]), rules).row, 2, "a tie for first fails P3");
+  assert.equal(scorePrereg2(s(12, 9, [["x.near", 6], ["intents.near", 5]]), rules).row, 2);
+  assert.equal(scorePrereg2(s(10.99, 9, lead), rules).row, 3, "P1 failing decides the row, whatever P2 and P3 do");
+  assert.equal(scorePrereg2(s(12, 9, []), rules).predictions[2].holds, false, "no function-call transactions fails P3");
+});
+
 test("dashboard is rebuilt from the current data (run rebuild.mjs --offline if this fails)", async () => {
   const { execFileSync } = await import("node:child_process");
   const { mkdtempSync } = await import("node:fs");

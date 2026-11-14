@@ -30,6 +30,7 @@ An evidence-first investment thesis for NEAR HACKATHON (track: `thesis`). The cl
 | `txshare.mjs` | Samples blocks and classifies each transaction's signing key (free public RPC) |
 | `protocol_switch.mjs` | Finds the block where protocol 87 ended the 30% contract gas rebate (free public RPC) → `data/protocol_switch.json` |
 | `check-anchor.mjs` | Checks the OpenTimestamps proof `PREREG-2.md.ots`: that `PREREG-2.md` is in a Bitcoin block mined at least 2 hours before its window opened |
+| `score-prereg2.mjs` | Scores `PREREG-2.md` mechanically: reads the window, seed, bars and frozen code hashes from the stamped file, refuses any other run, prints `HOLDS` or `FAILS` per prediction and the matching row of its result table |
 | `live.mjs`, `classify.mjs` | Live key state and target classification (public RPC) |
 
 Data source: `bigquery-public-data.crypto_near_mainnet_us.receipt_actions` (https://docs.near.org/data-infrastructure/big-query).
@@ -37,6 +38,6 @@ Data source: `bigquery-public-data.crypto_near_mainnet_us.receipt_actions` (http
 ## Disclosures
 
 - **Other entry by the same author (NEAR HACKATHON Q-015):** *Supplier Purse*, an AI agent that pays only verified suppliers from a TEE-held NEAR wallet, at [FILL: Supplier Purse repo URL]. The two projects are independent and share no code.
-- The scripts in this folder (`verify.mjs`, `rebuild.mjs`, `lib.mjs`, `txshare.mjs`, `protocol_switch.mjs`, `check-anchor.mjs`, `live.mjs`, `classify.mjs`, `test/`, `sql/`) were written with AI help (Claude Code), then reviewed and run by the author.
+- The scripts in this folder (`verify.mjs`, `rebuild.mjs`, `lib.mjs`, `txshare.mjs`, `protocol_switch.mjs`, `check-anchor.mjs`, `score-prereg2.mjs`, `live.mjs`, `classify.mjs`, `test/`, `sql/`) were written with AI help (Claude Code), then reviewed and run by the author.
 - Every number comes from a recorded run. Nothing is seeded or illustrative.
 - License: MIT (see `LICENSE`).

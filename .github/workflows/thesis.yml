@@ -1,6 +1,7 @@
 # Thesis checks. No secrets, no keys, no BigQuery: everything here is free and public.
 #   tests:  every headline number in THESIS.md is recomputed from thesis/data and compared with
-#           the text, data files are hash-checked, and the dashboard must match a fresh rebuild.
+#           the text, data files are hash-checked, PREREG-2 is re-scored by its own rules once its
+#           run is committed, and the dashboard must match a fresh rebuild.
 #   onchain: once a day (and on every push) re-confirm the sampled receipts against NEAR's
 #           public archival RPC. Kept separate so an RPC rate limit cannot hide a test failure.
 #           It also checks the PREREG-2.md OpenTimestamps proof down to a Bitcoin block header.
@@ -22,6 +23,8 @@ jobs:
         with:
           node-version: 22
       - run: node --test thesis/test/thesis.test.mjs
+      - name: PREREG-2 scored by its own rules (exit 2 = its run is not committed yet)
+        run: node thesis/score-prereg2.mjs || [ $? -eq 2 ]
       - name: Dashboard is current
         run: node thesis/rebuild.mjs --offline && git diff --exit-code thesis/dashboard
   onchain:

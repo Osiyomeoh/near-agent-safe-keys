@@ -23,6 +23,7 @@ NEAR accounts can hand out a *function-call key*: it can call one contract, with
 | `node thesis/rebuild.mjs --offline` | the dashboard rebuilt from raw data, byte-identical to the committed one | [thesis/rebuild.mjs](thesis/rebuild.mjs) |
 | open `thesis/dashboard/index.html`, press **Verify** | your browser re-checks the 120 receipts against NEAR's public RPC | [thesis/dashboard/](thesis/dashboard/) |
 | `node thesis/check-anchor.mjs` | whether `PREREG-2.md` was timestamped in a Bitcoin block before its window opened (OpenTimestamps proof, checked against block headers) | [thesis/PREREG-2.md](thesis/PREREG-2.md) |
+| `node thesis/score-prereg2.mjs` | `HOLDS` or `FAILS` for each of PREREG-2's three predictions, scored by rules read from the stamped file (`PENDING` until the window's run is committed) | [thesis/score-prereg2.mjs](thesis/score-prereg2.mjs) |
 
 ## What the brief asked for, and where it is
 
