@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { activity, holder, keyMonths, novToDate, summarizeTxShare, targetBuckets, verdict } from "./lib.mjs";
+import { checkRun, readPrereg, scorePrereg2 } from "./score-prereg2.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const p = (f) => join(here, f);
@@ -38,6 +39,16 @@ const tx = summarizeTxShare(JSON.parse(readFileSync(p("data/txshare_oct1_nov13.j
 const hold = holder(tx, JSON.parse(readFileSync(p("data/protocol_config.json"), "utf8")));
 const v = verdict({ months, nov });
 const prereg = existsSync(p("PREREG-2.md")) ? readFileSync(p("PREREG-2.md"), "utf8") : null;
+// PREREG-2 result: only once the pre-registered run (data/txshare_prereg2.json) exists, scored by the same
+// scorePrereg2() as score-prereg2.mjs. A file that is not exactly the pre-registered run stops the build.
+const preRun = prereg && existsSync(p("data/txshare_prereg2.json")) ? (() => {
+  const rules = readPrereg(prereg), run = JSON.parse(readFileSync(p("data/txshare_prereg2.json"), "utf8")), bad = checkRun(run, rules);
+  if (bad.length) throw new Error(`data/txshare_prereg2.json is not the pre-registered run: ${bad.join("; ")}`);
+  const sum = summarizeTxShare(run);
+  return { rules, run, sum, r: scorePrereg2(sum, rules) };
+})() : null;
+// One decimal, or two when one decimal would show a miss as exactly the bar.
+const shown = (q) => `${q.value.toFixed(+q.value.toFixed(1) === q.bar && !q.holds ? 2 : 1)}%`;
 const pct = (x, d = 1) => `${x.toFixed(d)}%`;
 const ci = (r) => `<b>${pct(r.point)}</b> <span class="m">(95% interval ${pct(r.lo)}–${pct(r.hi)})</span>`;
 
@@ -91,7 +102,15 @@ ${hold.after_rebate_end ? `<tr><td>NEAR burnt, annualized, only blocks after the
 <h2>Thesis status, computed</h2>
 <p><b>${v.status}</b>. The rules come from THESIS.md ("What would change our mind") and are applied by <code>verdict()</code> in <code>lib.mjs</code>. This is the status of the thesis, not a buy or sell call.</p>
 <table><tr><th>Rule</th><th>Fires?</th></tr>${v.rules.map((r) => `<tr><td>${r.text}</td><td>${r.fired ? "yes" : "no"}</td></tr>`).join("")}</table>
-${prereg ? `<h2>Next pre-registered test</h2>
+${preRun ? (() => { const { rules, run, sum, r } = preRun, [p1, p2, p3] = r.predictions, hf = (q) => `<b>${q.holds ? "holds" : "fails"}</b>`;
+  return `<h2>Pre-registered test 2, scored</h2>
+<p>Three predictions were fixed in <code>PREREG-2.md</code> before any block of the window existed. Its sha256 <code>${createHash("sha256").update(prereg).digest("hex")}</code> is timestamped in Bitcoin with OpenTimestamps (proof <code>PREREG-2.md.ots</code>; check it with <code>node thesis/check-anchor.mjs</code>). Window <code>${rules.window.from}</code> to <code>${rules.window.to}</code>: ${fmt(run.blocks_drawn)} random blocks (seed ${run.seed}), ${fmt(sum.txs)} transactions, ${fmt(sum.fc_txs)} signed by function-call keys. Data: <code>data/txshare_prereg2.json</code>. Scored by <code>node thesis/score-prereg2.mjs</code>.</p>
+<table><tr><th>Prediction</th><th>Bar</th><th>Result</th><th></th></tr>
+<tr><td>1. Share of transactions signed by function-call keys</td><td>at least ${p1.bar}%</td><td><b>${shown(p1)}</b> <span class="m">(95% interval ${pct(sum.fc_tx_share.lo)}–${pct(sum.fc_tx_share.hi)})</span></td><td>${hf(p1)}</td></tr>
+<tr><td>2. Share signed by function-call keys for Intents or Chain Signatures</td><td>at least ${p2.bar}%</td><td><b>${shown(p2)}</b> <span class="m">(95% interval ${pct(sum.agent_tx_share.lo)}–${pct(sum.agent_tx_share.hi)})</span></td><td>${hf(p2)}</td></tr>
+<tr><td>3. Most common function-call key target</td><td><code>${p3.target}</code>, strictly first</td><td>${p3.lead ? `<code>${p3.lead.fc_receiver}</code> ${fmt(p3.lead.txs)} of ${fmt(sum.fc_txs)}${p3.next ? `; next <code>${p3.next.fc_receiver}</code> ${fmt(p3.next.txs)}` : ""}` : "none"}</td><td>${hf(p3)}</td></tr></table>
+<p><b>Result, from the table PREREG-2.md fixed in advance: "${r.when}".</b> ${r.meaning}${/[.!?]$/.test(r.meaning) ? "" : "."}</p>
+<p class="m">Stated in advance: the window was a Saturday and the hackathon's deadline day, and this tests whether the finding repeats, not whether it grows. The frozen command ran from ${run.run.started.slice(0, 16).replace("T", " ")} UTC for ${Math.round(run.run.seconds / 60)} minutes (${fmt(run.run.calls.retries)} retried RPC requests). THESIS.md explains why that was after the scheduled time.</p>`; })() : prereg ? `<h2>Next pre-registered test</h2>
 <ul>${[...prereg.matchAll(/^\*\*Prediction \d[^\n]*/gm)].map((m) => `<li>${m[0].replace(/\*\*/g, "").replace(/`([^`]+)`/g, "<code>$1</code>")}</li>`).join("") || "<li>See PREREG-2.md.</li>"}</ul>
 <p>Window opens <code>${prereg.match(/Window opens:\*\*\s*`([^`]+)`/)?.[1]}</code>. sha256 of <code>PREREG-2.md</code>: <code>${createHash("sha256").update(prereg).digest("hex")}</code>. Timestamped in Bitcoin with OpenTimestamps before the window (proof <code>PREREG-2.md.ots</code>); check it with <code>node thesis/check-anchor.mjs</code>.</p>` : ""}
 <h2>What the top 40 targets actually are</h2>

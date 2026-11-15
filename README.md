@@ -10,7 +10,7 @@ NEAR accounts can hand out a *function-call key*: it can call one contract, with
 - **For a NEAR holder:** supply grows 2.47% a year, set by issuance. Fees burnt offset about 1% of it, so agent usage doesn't move supply yet.
 - **Against:** 96–97% of new keys are still full-access, and most of the jump is game and app logins, not agents.
 - **Verdict (computed by code from the rules in THESIS.md):** STRENGTHENING, NOT CONFIRMED.
-- **Next test, fixed before its blocks exist:** [`thesis/PREREG-2.md`](thesis/PREREG-2.md) predicts the transaction shares for 2026-11-14, 06:00–18:00 UTC. Its sha256 is in Bitcoin block 975,705 (OpenTimestamps), mined 10.3 hours before the window opened.
+- **Second test, fixed before its blocks existed:** [`thesis/PREREG-2.md`](thesis/PREREG-2.md) predicted the transaction shares for 2026-11-14, 06:00–18:00 UTC. Its sha256 is in Bitcoin block 975,705 (OpenTimestamps), mined 10.3 hours before the window opened. **Result: all three predictions hold.** Function-call keys signed 21.0% of 1,278 sampled transactions (bar: at least 11%), Intents or Chain Signatures keys signed 18.1% (bar: at least 8%), and intents.near led with 187 of 268. Details and caveats: [THESIS.md](thesis/THESIS.md#what-would-change-our-mind).
 
 [![thesis checks](https://github.com/Osiyomeoh/near-agent-safe-keys/actions/workflows/thesis.yml/badge.svg)](https://github.com/Osiyomeoh/near-agent-safe-keys/actions/workflows/thesis.yml) · Dashboard: [osiyomeoh.github.io/near-agent-safe-keys](https://osiyomeoh.github.io/near-agent-safe-keys/) · Read: [`thesis/THESIS.md`](thesis/THESIS.md)
 
@@ -23,7 +23,7 @@ NEAR accounts can hand out a *function-call key*: it can call one contract, with
 | `node thesis/rebuild.mjs --offline` | the dashboard rebuilt from raw data, byte-identical to the committed one | [thesis/rebuild.mjs](thesis/rebuild.mjs) |
 | open `thesis/dashboard/index.html`, press **Verify** | your browser re-checks the 120 receipts against NEAR's public RPC | [thesis/dashboard/](thesis/dashboard/) |
 | `node thesis/check-anchor.mjs` | whether `PREREG-2.md` was timestamped in a Bitcoin block before its window opened (OpenTimestamps proof, checked against block headers) | [thesis/PREREG-2.md](thesis/PREREG-2.md) |
-| `node thesis/score-prereg2.mjs` | `HOLDS` or `FAILS` for each of PREREG-2's three predictions, scored by rules read from the stamped file (`PENDING` until the window's run is committed) | [thesis/score-prereg2.mjs](thesis/score-prereg2.mjs) |
+| `node thesis/score-prereg2.mjs` | `HOLDS` for each of PREREG-2's three predictions, then `Result: "All three hold"`, scored from the committed run by rules read from the stamped file | [thesis/score-prereg2.mjs](thesis/score-prereg2.mjs) |
 
 ## What the brief asked for, and where it is
 

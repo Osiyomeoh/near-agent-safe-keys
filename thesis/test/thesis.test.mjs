@@ -4,7 +4,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { activity, clusterRatio, holder, keyMonths, lcg, novToDate, share, summarizeTxShare, targetBuckets, verdict, wilson } from "../lib.mjs";
@@ -200,6 +200,22 @@ test("PREREG-2 scorer applies the rules as written (dry run on the Oct 1 – Nov
   assert.equal(scorePrereg2(s(12, 9, [["x.near", 6], ["intents.near", 5]]), rules).row, 2);
   assert.equal(scorePrereg2(s(10.99, 9, lead), rules).row, 3, "P1 failing decides the row, whatever P2 and P3 do");
   assert.equal(scorePrereg2(s(12, 9, []), rules).predictions[2].holds, false, "no function-call transactions fails P3");
+});
+
+// Runs once the pre-registered run is committed; skipped until then.
+const prereg2Run = join(root, "thesis/data/txshare_prereg2.json");
+test("PREREG-2 run is exactly the pre-registered command, scores cleanly, and THESIS.md states its result", { skip: !existsSync(prereg2Run) && "data/txshare_prereg2.json is not committed yet" }, async () => {
+  const { spawnSync } = await import("node:child_process");
+  const { readPrereg, scorePrereg2, checkRun } = await import("../score-prereg2.mjs");
+  const rules = readPrereg(read("thesis/PREREG-2.md"));
+  const file = JSON.parse(readFileSync(prereg2Run, "utf8"));
+  assert.deepEqual(checkRun(file, rules), [], "the committed file is the finished pre-registered run");
+  const cli = spawnSync("node", [join(root, "thesis/score-prereg2.mjs")], { encoding: "utf8" });
+  assert.equal(cli.status, 0, cli.stdout);
+  const r = scorePrereg2(summarizeTxShare(file), rules);
+  assert.match(cli.stdout, new RegExp(`Result: "${r.when}"`));
+  assert.ok(read("thesis/THESIS.md").includes(`"${r.when}"`), `THESIS.md quotes the result row "${r.when}"`);
+  assert.ok(read("thesis/THESIS.md").includes(`${r.predictions[0].value.toFixed(1)}%`), "THESIS.md states the measured P1 share");
 });
 
 test("dashboard is rebuilt from the current data (run rebuild.mjs --offline if this fails)", async () => {

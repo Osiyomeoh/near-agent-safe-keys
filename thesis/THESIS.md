@@ -9,7 +9,7 @@
 > - **For a NEAR holder:** supply grows 2.47% a year, set by issuance. Fees burnt offset about 1% of it, so agent usage doesn't move supply yet.
 > - **Against:** about 96–97% of new keys are still full-access. Only 1.8% of function-call keys point at agent infrastructure (Intents, Chain Signatures), 11% point at accounts with no contract, and 45 of 120 sampled keys were deleted within weeks.
 > - **Verdict (computed by `verdict()` in `lib.mjs` from the rules below):** STRENGTHENING, NOT CONFIRMED. The moat is real and NEAR Intents already runs on it, but few agents hold these keys yet. Watch Nov–Dec: if the new-key share holds above 2% without hackathon traffic, the thesis strengthens.
-> - **Next test, fixed before its blocks exist:** [PREREG-2.md](PREREG-2.md) predicts the transaction shares for 2026-11-14, 06:00–18:00 UTC.
+> - **Second test, fixed before its blocks existed:** [PREREG-2.md](PREREG-2.md) made three predictions about 2026-11-14, 06:00–18:00 UTC, and its hash went into Bitcoin first. Result, from its own table: **"All three hold"**. Function-call keys signed 21.0% of 1,278 sampled transactions (bar: at least 11%), Intents or Chain Signatures keys signed 18.1% (bar: at least 8%), and intents.near led with 187 of the 268 function-call transactions. `node thesis/score-prereg2.mjs` re-scores it.
 > - **Check it:** run `node thesis/verify.mjs`, or open the dashboard and press **Verify**. No account is needed.
 
 **The claim.** On NEAR, any account can natively hand out a key that can call only one contract, with a gas allowance, and can't move funds: a *function-call access key*. That is the safest way to give an AI agent or an app access to an account. If agents are going to hold money, this feature is a long-term edge for NEAR. **The data says the edge is real, rarely handed out, and already doing real work. Function-call keys are under 5% of new keys but sign about 13% of transactions, mostly NEAR Intents' own relay. New keys started to move in Sep–Oct 2026, and most of that move is game and app logins, not agents.**
@@ -133,7 +133,17 @@ This is the status of a thesis, not investment advice. A holder's question is wh
 - **Bullish:** a function-call share above 10% for 3 months running, driven by targets that aren't games or logins.
 - **Bearish:** the share falls back under 0.5% once the hackathon ends (watch Nov–Dec 2026).
 - **Computed status:** `verdict()` in `lib.mjs` applies these two rules and the November pre-registration to the committed data: **STRENGTHENING, NOT CONFIRMED**. The tests fail if the code and this text disagree. The dashboard lists which rules fire.
-- **Next test:** [PREREG-2.md](PREREG-2.md) makes three predictions about blocks from 2026-11-14, 06:00–18:00 UTC, before those blocks exist. If function-call keys sign under 11% of that window's transactions, we drop the "common to use" claim. Its sha256 is timestamped in Bitcoin with [OpenTimestamps](https://opentimestamps.org/) before the window opens (proof: [PREREG-2.md.ots](PREREG-2.md.ots)). `node thesis/check-anchor.mjs` checks that the proof reaches a Bitcoin block mined at least 2 hours before the window. Last run (Nov 14, 04:43 UTC): the proof reaches Bitcoin block 975,705, mined 2026-11-13 at 19:43:41 UTC, 10.3 hours before the window opened.
+- **Second test, scored:** [PREREG-2.md](PREREG-2.md) made three predictions about blocks from 2026-11-14, 06:00–18:00 UTC, before those blocks existed. Its sha256 is timestamped in Bitcoin with [OpenTimestamps](https://opentimestamps.org/) before the window opens (proof: [PREREG-2.md.ots](PREREG-2.md.ots)). `node thesis/check-anchor.mjs` checks that the proof reaches a Bitcoin block mined at least 2 hours before the window. Last run (Nov 14, 04:43 UTC): the proof reaches Bitcoin block 975,705, mined 2026-11-13 at 19:43:41 UTC, 10.3 hours before the window opened. `node thesis/score-prereg2.mjs` scores the committed run, `data/txshare_prereg2.json`, by rules it reads from that file:
+
+| Prediction | Bar | Window result (95% interval) | |
+|---|---|---|---|
+| 1. Share of transactions signed by function-call keys | at least 11% | 21.0% (18.4–24.2%) | holds |
+| 2. Share signed by Intents or Chain Signatures keys | at least 8% | 18.1% (15.9–21.6%) | holds |
+| 3. Top function-call key target | `intents.near`, strictly first | `intents.near` 187 of 268; next `v1.signer` 44 | holds |
+
+By the table PREREG-2.md fixed in advance, "All three hold" means: "Rare to add, common to use" repeats on new blocks: function-call keys are load-bearing infrastructure, led by Intents. Two things it stated in advance still apply. The window was a Saturday and the hackathon's deadline day, and the test asked whether the finding repeats, not whether it grows. So we don't read the jump from 13.1% to 21.0% as growth. The computed verdict stays **STRENGTHENING, NOT CONFIRMED**, because `verdict()` applies the rules above and PREREG-2 did not change them.
+
+How it ran: neither frozen file changed, and the scorer checks both hashes. The scheduled run started at 18:25 UTC and stopped at 18:42 UTC because its first request got no usable answer from either public archival RPC endpoint in 16 tries. The same command, unchanged, ran again from 23:09 to 00:15 UTC (3,292 retried requests, logged in the data file). Once the window has closed, the command always draws the same 200 blocks: the window's timestamps fix the height range (224,473,337 to 224,548,871) and the seed fixes the draw.
 
 ## Limits
 
